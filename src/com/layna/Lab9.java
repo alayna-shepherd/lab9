@@ -13,43 +13,69 @@ public class Lab9 {
 		ArrayList<Double> itemPrice = listOfPrices();
 		ArrayList<String> orderName = new ArrayList<>();
 		ArrayList<Double> orderPrice = new ArrayList<>();
-		
+		String userCont;
 	 //display menu
 		System.out.println("Welcome to Geunther's market!");
 		printMenu(itemName, itemPrice);
 		
 	
-		String userInput;
+		
 		//ask user for item from menu and add to cart if possible
 		do {
 		System.out.println("What item would you like to order?");
 		String itemOrdered = scan.nextLine();
-		//System.out.println(itemOrdered);
-		if ( itemOrdered.equalsIgnoreCase(itemName)) {
-			orderName.add(itemOrdered);
-			//display item name and price in their cart
-			System.out.println("Adding " + (itemOrdered) + "to cart for " + (itemPrice(i)));
 		
+	
+		if (itemOrdered.equalsIgnoreCase("banana")) {
+			orderName.add("banana");
+			orderPrice.add(0.59);
+			System.out.println("banana has been added to your order for $0.59");
+		} else if (itemOrdered.equalsIgnoreCase("apple")) {
+			orderName.add("apple");
+			orderPrice.add(0.99);
+			System.out.println("apple has been added to your order for $0.99");
+		} else if (itemOrdered.equalsIgnoreCase("cauliflower")) {
+			orderName.add("cauliflower");
+			orderPrice.add(1.59);
+			System.out.println("cauliflower has been added to your order for $1.59");
+		} else if (itemOrdered.equalsIgnoreCase("dragonfruit")) {
+			orderName.add("dragonfruit");
+			orderPrice.add(2.19);
+			System.out.println("dragonfruit has been added to your order for $2.19");
+		} else if (itemOrdered.equalsIgnoreCase("elderberry")) {
+			orderName.add("elderberry");
+			orderPrice.add(1.79);
+			System.out.println("elderberry has been added to your order for $1.79");
+		} else if (itemOrdered.equalsIgnoreCase("figs")) {
+			orderName.add("figs");
+			orderPrice.add(2.09);
+			System.out.println("figs has been added to your order for $2.09");
+		} else if (itemOrdered.equalsIgnoreCase("grapefruit")) {
+			orderName.add("grapefruit");
+			orderPrice.add(1.99);
+			System.out.println("grapefruit has been added to your order for $1.99");
+		} else if (itemOrdered.equalsIgnoreCase("honeydew")) {
+			orderName.add("honeydew");
+			orderPrice.add(3.49);
+			System.out.println("honeydew has been added to your order for $3.49");
+			
 			//display error
 		} else {
-			System.out.println("Sorry, we dont havee those! Please try again.");
-		} //ask if user wants to add another
+			System.out.println("Sorry, we dont have those! Please try again.");
+		} 
+		//ask if user wants to add another
 		System.out.println("would you like to order anything else? (y/n)");
-		String userInput1 = scan.nextLine();
-		}while (userInput.equalsIgnoreCase("Y"));
+		 userCont = scan.nextLine();
+		}while (userCont.equalsIgnoreCase("y"));
 			
 		System.out.println("Thanks for your order!");
 		System.out.println("Heres what you got:");
-		printMenu(orderName,orderPrice);
+				printMenu(orderName,orderPrice);
+		
+		
+		
 	}
 		
-	
-			//if not, make list of what's in their basket and prices
-		
-		//display average price of items ordered
-		
-		
-	
 
 
 public static ArrayList<String> listOfNames(){
@@ -77,13 +103,19 @@ public static ArrayList<Double> listOfPrices(){
 	return itemPrice;
 }
 public static void printMenu(ArrayList<String> name, ArrayList<Double> price) {
-
+}
 	
-	for (int i = 0; i < name.size(); i++) {
-		System.out.println( name.get(i) + " "  + price.get(i));
-
+	
+	public static int totalPrice(int[] orderPrice) {
+		int sum = 0;
+		
+		for(int i = 0; i < orderPrice.length; i++) {
+			sum += orderPrice[i];
+			
+		}
+		return sum;
 	}
 
 
-}
+
 }
